@@ -28,24 +28,25 @@
 
   <nav class="p-4 mb-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <button class="mb-4 px-6 py-2 bg-gray-300 rounded-lg shadow self-center hover:scale-105 transition-transform duration-300 click-animation">
-            LOGIN
-          </button>
+        <a href="pages/login.html">
+            <button class="mb-4 px-6 py-2 bg-gray-300 rounded-lg shadow self-center hover:scale-105 transition-transform duration-300 click-animation">
+                LOGIN
+            </button>
+        </a>
     </div>
   </nav>
 
-  
-
   <div id="main-card" class="bg-gray-300 rounded-lg overflow-hidden shadow-lg w-full max-w-6xl self-center fade-in">
     <div class="grid grid-cols-3 divide-x divide-black text-center p-6">
-      <div>
-        <h2 class="font-bold mb-4">NOM & PRENOM</h2>
-        <p class="mb-4">MARIE DELBECQ</p>
-        <p class="mb-4">ENZO CRIBIER</p>
-        <p class="mb-4">ANTOINE DUPONT</p>
-        <p class="mb-4">MAHAU DELIT</p>
-        <p class="mb-4">THIBAULT COURTOIS</p>
-      </div>
+        <div class="leading-relaxed">
+            <h2 class="font-bold mb-7">NOM & PRENOM</h2>
+            <p class="mb-7">MARIE DELBECQ</p>
+            <p class="mb-7">ENZO CRIBIER</p>
+            <p class="mb-7">ANTOINE DUPONT</p>
+            <p class="mb-7">MAHAU DELIT</p>
+            <p class="mb-7">THIBAULT COURTOIS</p>
+        </div>
+        
       <div>
         <h2 class="font-bold mb-4">SIGNATURE</h2>
         <div class="flex flex-col items-center space-y-4">
@@ -69,11 +70,11 @@
       <div>
         <h2 class="font-bold mb-4">ABSENCE</h2>
         <div class="flex flex-col items-center space-y-4">
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation">DÉCLARER</button>
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation">DÉCLARER</button>
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation">DÉCLARER</button>
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation">DÉCLARER</button>
-          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation">DÉCLARER</button>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation" onclick="declareAbsence(this)">DÉCLARER</button>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation" onclick="declareAbsence(this)">DÉCLARER</button>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation" onclick="declareAbsence(this)">DÉCLARER</button>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation" onclick="declareAbsence(this)">DÉCLARER</button>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded-lg click-animation" onclick="declareAbsence(this)">DÉCLARER</button>
         </div>
       </div>
     </div>
@@ -94,6 +95,20 @@
         card.classList.add('show');
       }, 200); // petite attente pour effet fluide
     });
+
+    // Fonction pour déclarer l'absence
+    function declareAbsence(button) {
+      // Cacher le bouton "DÉCLARER"
+      button.style.display = 'none';
+
+      // Créer un élément de texte "Absent"
+      const absentText = document.createElement('span');
+      absentText.textContent = 'Absent';
+      absentText.classList.add('text-green-500', 'font-bold');
+
+      // Remplacer le bouton par "Absent"
+      button.parentElement.appendChild(absentText);
+    }
   </script>
 
 </body>
